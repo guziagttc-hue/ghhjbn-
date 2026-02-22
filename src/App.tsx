@@ -194,63 +194,13 @@ export default function App() {
           AI ভিডিও তৈরি করুন
         </button>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Upload Section */}
-          <section className="lg:col-span-1">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-24">
-              <div className="flex items-center gap-2 mb-6">
-                <CloudUpload className="w-6 h-6 text-primary" />
-                <h2 className="text-xl font-bold">নতুন ভিডিও আপলোড</h2>
-              </div>
-              
-              <form onSubmit={handleAddVideo} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-1">ভিডিওর শিরোনাম</label>
-                  <input 
-                    type="text" 
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="যেমন: MS Word Schedule 1"
-                    className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">ক্যাটাগরি</label>
-                  <select 
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value as Category)}
-                    className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                  >
-                    <option value="MS Word">MS Word</option>
-                    <option value="MS Excel">MS Excel</option>
-                    <option value="Freelancing">ফ্রিল্যান্সিং</option>
-                    <option value="Electrical">ইলেকট্রিক্যাল</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1">ইউটিউব লিঙ্ক</label>
-                  <input 
-                    type="text" 
-                    value={link}
-                    onChange={(e) => setLink(e.target.value)}
-                    placeholder="https://www.youtube.com/watch?v=..."
-                    className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
-                  />
-                </div>
-                <button 
-                  disabled={isUploading}
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                >
-                  {isUploading ? <Loader2 className="w-5 h-5 animate-spin" /> : "প্রকাশ করুন"}
-                </button>
-              </form>
-            </div>
-          </section>
-
+        <div className="w-full">
           {/* Video Grid */}
-          <section className="lg:col-span-2">
-            <h2 className="text-2xl font-bold mb-6">আমাদের সকল টিউটোরিয়াল ভিডিও</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <section className="w-full">
+            <h2 className="text-2xl font-bold mb-6 leading-tight">
+              আপনার প্রতিষ্ঠানের জন্য একটি প্রফেশনাল ভিডিও আপলোড এবং লার্নিং প্ল্যাটফর্ম (যেমন: ইউটিউব বা উডেমি-র মতো) ডিজাইন কোড নিচে দেওয়া হলো। এখানে শিক্ষার্থীরা তাদের ক্লাসের ভিডিও দেখতে পারবে এবং আপনি ভিডিও আপলোড করতে পারবেন।
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence mode="popLayout">
                 {videos.map((video) => (
                   <motion.div 
